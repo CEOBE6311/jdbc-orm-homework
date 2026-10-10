@@ -1,0 +1,43 @@
+﻿
+========== 步骤1：学生表 新增 3 条记录（JDBCTool.save） ==========
+save 影响行数=1，保存对象（主键已回填）：Student{id=1, name='张三', major='计算机科学与技术', age=20, enrollDate=2023-09-01, graduated=false, tuition=5800.00}
+save 影响行数=1，保存对象（主键已回填）：Student{id=2, name='李四', major='软件工程', age=21, enrollDate=2022-09-01, graduated=true, tuition=6200.50}
+save 影响行数=1，保存对象（主键已回填）：Student{id=3, name='王五', major='人工智能', age=19, enrollDate=2024-09-01, graduated=false, tuition=6600.00}
+
+========== 步骤2：学生表 查询全部（JDBCTool.resultSetToList） ==========
+Student{id=1, name='张三', major='计算机科学与技术', age=20, enrollDate=2023-09-01, graduated=false, tuition=5800.00}
+Student{id=2, name='李四', major='软件工程', age=21, enrollDate=2022-09-01, graduated=true, tuition=6200.50}
+Student{id=3, name='王五', major='人工智能', age=19, enrollDate=2024-09-01, graduated=false, tuition=6600.00}
+
+========== 步骤3：学生表 按ID查询（JDBCTool.getOneById, id=2） ==========
+查询结果：Student{id=2, name='李四', major='软件工程', age=21, enrollDate=2022-09-01, graduated=true, tuition=6200.50}
+
+========== 步骤4：学生表 修改（JDBCTool.update） ==========
+update 影响行数=1，更新后对象：Student{id=2, name='李四', major='数据科学与大数据技术', age=21, enrollDate=2022-09-01, graduated=true, tuition=6888.88}
+再次按ID查询验证：Student{id=2, name='李四', major='数据科学与大数据技术', age=21, enrollDate=2022-09-01, graduated=true, tuition=6888.88}
+
+========== 步骤5：学生表 删除（JDBCTool.delete, id=3） ==========
+delete 影响行数=1，删除对象：Student{id=3, name='王五', major='人工智能', age=19, enrollDate=2024-09-01, graduated=false, tuition=6600.00}
+删除后剩余记录：
+Student{id=1, name='张三', major='计算机科学与技术', age=20, enrollDate=2023-09-01, graduated=false, tuition=5800.00}
+Student{id=2, name='李四', major='数据科学与大数据技术', age=21, enrollDate=2022-09-01, graduated=true, tuition=6888.88}
+
+========== 步骤6：学院表 完整增删改查（JDBCTool 五方法） ==========
+save 影响行数=1，保存对象（主键已回填）：College{id=1, name='计算机学院', code='CS01'}
+save 影响行数=1，保存对象（主键已回填）：College{id=2, name='软件学院', code='SE02'}
+save 影响行数=1，保存对象（主键已回填）：College{id=3, name='人工智能学院', code='AI03'}
+—— 查询全部 ——
+College{id=1, name='计算机学院', code='CS01'}
+College{id=2, name='软件学院', code='SE02'}
+College{id=3, name='人工智能学院', code='AI03'}
+—— 按ID查询（id=2）——
+查询结果：College{id=2, name='软件学院', code='SE02'}
+—— 修改（id=2）——
+update 影响行数=1，更新后：College{id=2, name='网络空间安全学院', code='CS-CYBER'}
+—— 删除（id=3）——
+delete 影响行数=1，删除对象：College{id=3, name='人工智能学院', code='AI03'}
+—— 学院表最终数据 ——
+College{id=1, name='计算机学院', code='CS01'}
+College{id=2, name='网络空间安全学院', code='CS-CYBER'}
+
+========== 演示结束：两张表增删改查全部成功！ ==========
